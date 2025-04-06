@@ -1,0 +1,31 @@
+<div class="flex flex-column gap-3">
+  <h1>
+    Calcular media e mediana
+  </h1>
+  <h3 class="justify-content-center"> DIGITE 3 NUMEROS</h3>
+  <form [formGroup]="formGroup">
+    <div class="justify-content-evenly">
+      <mat-form-field>
+        <mat-label>Numero</mat-label>
+        <input matInput type="number" formControlName="numero1" appAutofocus required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Numero</mat-label>
+        <input matInput type="number" formControlName="numero2" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Numero</mat-label>
+        <input matInput type="number" formControlName="numero3" required>
+      </mat-form-field>
+    </div>
+
+    <button mat-flat-button class="btn-default" id="save" type="submit"
+            (click)="saveOrUpdate()"
+            [disabled]="!formGroup.valid">
+      Calcular
+    </button>
+
+
+  </form>
+</div>
+<app-estatisticas-list></app-estatisticas-list>
