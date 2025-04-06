@@ -1,6 +1,5 @@
-import {ModelBase} from './model-base';
-
-export class Processamento extends ModelBase{
+export class Processamento{
+  id: number;
   numero1: number;
   numero2: number;
   numero3: number;

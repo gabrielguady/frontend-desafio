@@ -1,6 +1,6 @@
 <div class="flex flex-column gap-3">
   <h1>
-    Calcular media e mediana
+    CALCULAR MEDIA E MEDIANA
   </h1>
   <h3 class="justify-content-center"> DIGITE 3 NUMEROS</h3>
   <form [formGroup]="formGroup">
@@ -24,8 +24,15 @@
             [disabled]="!formGroup.valid">
       Calcular
     </button>
+    @if (isLoading()){
 
-
+      <mat-progress-bar
+        mode="indeterminate"
+        class="example-tree-progress-bar"></mat-progress-bar>
+    }
   </form>
 </div>
+
+
+
 <app-estatisticas-list></app-estatisticas-list>

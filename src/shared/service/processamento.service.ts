@@ -2,7 +2,6 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {URLS} from '../urls';
 import {HttpOptions} from '../http/http-options';
-import {Processamento} from '../models/processamento';
 
 export class ProcessamentoService<T> {
   public fullUrl: string;
@@ -38,8 +37,8 @@ export class ProcessamentoService<T> {
     const url = this.fullUrl;
     return this.http.post<T>(url, entity, this.getOptions()) as Observable<T>;
   }
-  getStatus(id: number | string): Observable<Processamento> {
-    return this.http.get<Processamento>(`/api/processamento/${id}/status/`);
+  getStatus(id: number | string): Observable<T> {
+    return this.http.get<T>(`http://localhost:8000/api/core/numeros/${id}/status/`);
   }
 
 }

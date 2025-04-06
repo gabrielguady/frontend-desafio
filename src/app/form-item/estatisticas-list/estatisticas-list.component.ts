@@ -42,25 +42,24 @@ export class EstatisticasListComponent implements OnInit {
   private service: ProcessamentoService<Processamento>
 
   constructor(private http: HttpClient) {
-    this.service =  new ProcessamentoService<Processamento>(http,URLS.DATA_SOURCE)
+    this.service = new ProcessamentoService<Processamento>(http, URLS.DATA_SOURCE)
   }
+
   ngOnInit(): void {
     this.search()
   }
 
   public search(resetIndex: boolean = false): void {
     this.service.clearParameter();
-    const intervalId = setInterval(() => {
-      this.service.getAll().subscribe({
-        next: (data: Processamento[]) => {
-          this.dataSource = data;
-          console.log('Processamento loaded: ', data);
-        },
-        error: (error) => {
-          console.error('error loading Processamento: ', error);
-        }
-      });
-    }, 3000);
+    this.service.getAll().subscribe({
+      next: (data: Processamento[]) => {
+        this.dataSource = data;
+        console.log('Processamento loaded: ', data);
+      },
+      error: (error) => {
+        console.error('error loading Processamento: ', error);
+      }
+    });
   }
 
 }
